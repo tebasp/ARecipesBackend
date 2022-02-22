@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ingredients",
+  "info": {
+    "singularName": "ingredient",
+    "pluralName": "ingredients",
+    "displayName": "ingredient",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "ingredient_quantities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ingredient-quantity.ingredient-quantity",
+      "inversedBy": "ingredients"
+    },
+    "recipes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe.recipe",
+      "inversedBy": "ingredients"
+    }
+  }
+}

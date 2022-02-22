@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recipes",
+  "info": {
+    "singularName": "recipe",
+    "pluralName": "recipes",
+    "displayName": "Recipe"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Directions": {
+      "type": "text"
+    },
+    "Author": {
+      "type": "string"
+    },
+    "Vegan": {
+      "type": "boolean"
+    },
+    "Servings": {
+      "type": "integer"
+    },
+    "Duration": {
+      "type": "integer"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "ingredient_quantities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ingredient-quantity.ingredient-quantity",
+      "inversedBy": "recipes"
+    },
+    "admin_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    },
+    "difficulties": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::difficulty.difficulty",
+      "inversedBy": "recipes"
+    },
+    "ingredients": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ingredient.ingredient",
+      "inversedBy": "recipes"
+    }
+  }
+}

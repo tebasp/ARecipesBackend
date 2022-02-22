@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ingredient_quantities",
+  "info": {
+    "singularName": "ingredient-quantity",
+    "pluralName": "ingredient-quantities",
+    "displayName": "ingredientQuantity"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quantity": {
+      "type": "float"
+    },
+    "ingredients": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ingredient.ingredient",
+      "mappedBy": "ingredient_quantities"
+    },
+    "type_quantities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::type-quantity.type-quantity",
+      "inversedBy": "ingredient_quantities"
+    },
+    "recipes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recipe.recipe",
+      "inversedBy": "ingredient_quantities"
+    }
+  }
+}
